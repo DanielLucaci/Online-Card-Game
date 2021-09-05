@@ -1,0 +1,12 @@
+.header { 
+    text-align: center;
+    padding: 50px;
+    background-color: transparent;
+}
+
+.header-title {
+    color: #023047;
+    font-family: 'Play', sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+}
