@@ -1,5 +1,6 @@
 .menu {
     width: 80%;
+    max-width: 1500px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -22,7 +23,6 @@
     padding: 10px;
     margin-bottom: 25px;
     width: 85%;
-    max-width: 1500px;
 }
 
 .menu-item p {
@@ -92,6 +92,11 @@
     font-size: 2rem;
     border: 2px solid white;
     background-color: #b4f055;
-    padding: 0 15px;
+    padding: 10px 15px;
     text-align: center;
+    color: #FF5733;   
+}
+
+.play-button:hover {
+    background-color: rgba(180,240,85, 0.7);
 }

@@ -1,12 +1,15 @@
-import React from 'react';
-import './CardContainer.css';
+import React from "react";
+import "./CardContainer.css";
+import Card from "./Card";
 
 const CardContainer = (props) => {
-    return (
-        <div>
-
-        </div>
-    )
-}
+  return (
+    <div className={`card-container ${props.difficulty.toLowerCase()}`}>
+      {props.cards.map((card) => (
+        <Card {...card} />
+      ))}
+    </div>
+  );
+};
 
 export default CardContainer;

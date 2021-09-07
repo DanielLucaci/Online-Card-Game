@@ -1,0 +1,12 @@
+.card {
+    height: 150px;
+    padding: 10px;
+    background-color: magenta;
+    border-radius: 10px;
+}
+
+.card img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}

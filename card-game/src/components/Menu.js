@@ -5,7 +5,7 @@ const categories = [
   {
     name: "Fruits",
     image:
-      "https://image.shutterstock.com/z/stock-photo-a-group-of-fresh-fruits-in-a-vertical-composition-3163543.jpg",
+    "https://previews.123rf.com/images/tankist276/tankist2761209/tankist276120900183/15257754-still-life-of-big-heap-multi-coloured-fruits-vertical-background.jpg"
   },
   {
     name: "Vegetables",
@@ -19,8 +19,7 @@ const categories = [
   },
   {
     name: "Trees",
-    image:
-      "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/flower-pond-vertical-darrell-gulin.jpg",
+    image: "https://previews.123rf.com/images/andreiuc88/andreiuc881204/andreiuc88120400070/13403316-vertical-photo-of-an-old-tree-in-a-green-forest.jpg"
   },
   {
     name: "Animals",
