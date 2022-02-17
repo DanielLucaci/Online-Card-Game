@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Header from "./components/Header";
-import Menu from "./components/Menu";
-import CardContainer from "./components/CardContainer";
-import { cards } from "./data";
+import Header from "./components/Header/Header";
+import Menu from "./components/Menu/Menu";
+import CardContainer from "./components/Card/CardContainer";
+import './App.css';
+import { cards } from "./data/data.js";
 
 function App() {
   const [playing, setPlaying] = useState(false);
@@ -11,20 +12,22 @@ function App() {
   const [cardItems, setCardItems] = useState([]);
 
   useEffect(() => {
-    switch(difficulty) {
-      case 'Easy':
+    switch (difficulty) {
+      case "Easy":
         setCardItems(shuffle(cards[category]).slice(0, 6));
         break;
-      case 'Medium':
+      case "Medium":
         setCardItems(shuffle(cards[category]).slice(0, 8));
         break;
-      case 'Hard':
+      case "Hard":
         setCardItems(shuffle(cards[category]).slice(0, 12));
         break;
       default:
         break;
-    };
-  }, [difficulty, category])
+    }
+  }, [difficulty, category]);
+
+
 
   const shuffle = (array) => {
     var currentIndex = array.length,
@@ -43,27 +46,28 @@ function App() {
       ];
     }
     return array;
-  }
-
-
+  };
 
   return (
     <>
       <Header />
-      {playing ? (
-        <CardContainer 
-          difficulty={difficulty}
-          cards={cardItems}
-        />
-      ) : (
-        <Menu
-          difficulty={difficulty}
-          category={category}
-          onChangeCategory={(category) => setCategory(category)}
-          onChangeDifficulty={(difficulty) => setDifficulty(difficulty)}
-          onPlayButton={() => setPlaying(true)}
-        />
-      )}
+      <div className="main">
+        {playing ? (
+          <CardContainer
+            difficulty={difficulty}
+            category={category}
+            cards={cardItems}
+          />
+        ) : (
+          <Menu
+            difficulty={difficulty}
+            category={category}
+            onChangeCategory={(category) => setCategory(category)}
+            onChangeDifficulty={(difficulty) => setDifficulty(difficulty)}
+            onPlayButton={() => setPlaying(true)}
+          />
+        )}
+      </div>
     </>
   );
 }

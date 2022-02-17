@@ -1,0 +1,6 @@
+.difficulty-container { 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-radius: 15px;
+    overflow: hidden;
+}

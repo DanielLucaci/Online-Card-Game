@@ -1,0 +1,13 @@
+.play-button {
+    border-radius: 25px;
+    font-size: 1.5rem;
+    border: 2px solid white;
+    background-color: #b4f055;
+    padding: 10px 30px;
+    text-align: center;
+    color: #001172; 
+}
+
+.play-button:hover {
+    background-color: rgba(180,240,85, 0.7);
+}

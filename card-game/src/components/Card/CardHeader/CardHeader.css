@@ -1,0 +1,12 @@
+.card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px 0;
+}
+
+.card-header p {
+    color: #001172;
+    font-size: 1.2rem;
+}

@@ -1,0 +1,9 @@
+.difficulty-item { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.difficulty-item h4 {
+    margin-bottom: 0;
+}
