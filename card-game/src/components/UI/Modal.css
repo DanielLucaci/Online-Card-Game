@@ -1,0 +1,54 @@
+.backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-color: rgba(0 0 0 / 0.7);
+}
+
+.modal {
+    position: absolute;
+    width: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #00a6f3;
+    border-radius: 10px;
+    border: 5px solid #023047;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 0.6);
+    padding: 25px 30px;
+    z-index: 10;
+}
+
+.modal h1 {
+    font-size: 3rem;
+    font-weight: bold; 
+}
+
+.statistics {
+    padding: 20px 0;
+}
+
+.statistics p {
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Play', sans-serif;
+    margin-bottom: 10px;
+}
+
+.play-again {
+    border-radius: 25px;
+    font-size: 1.5rem;
+    border: 2px solid white;
+    background-color: #b4f055;
+    padding: 10px 30px;
+    text-align: center;
+    color: #001172; 
+}
+
+.play-again:hover {
+    background-color: rgba(180,240,85, 0.7);
+}

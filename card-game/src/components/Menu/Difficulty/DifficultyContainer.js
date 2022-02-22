@@ -1,8 +1,12 @@
 import DifficultyItem from "./DifficultyItem/DifficultyItem";
 import { difficulties } from "../../../data/data.js";
 import './DifficultyContainer.css'
+import { useContext } from "react";
+import GameContext from "../../../store/game-context";
 
 export default function DifficultyContainer(props) {
+  const gameCtx = useContext(GameContext);
+
   return (
     <div className="menu-item">
       <p>Difficulty</p>
@@ -10,9 +14,9 @@ export default function DifficultyContainer(props) {
         {difficulties.map((difficulty) => {
           return (
             <DifficultyItem
-              active={difficulty === props.difficulty} 
+              active={difficulty === gameCtx.difficulty.value} 
               name={difficulty}
-              onChangeDifficulty={props.onChangeDifficulty}
+              key={difficulty}
             />
           );
         })}

@@ -9,9 +9,9 @@ const Menu = (props) => {
   return (
     <section className="menu">
       <MenuHeader />
-      <CategoryContainer category={props.category} onChangeCategory={props.onChangeCategory} />
-      <DifficultyContainer difficulty={props.difficulty} onChangeDifficulty={props.onChangeDifficulty} />
-      <PlayButton onPlayButton={props.onPlayButton} />
+      <CategoryContainer />
+      <DifficultyContainer />
+      <PlayButton  />
     </section>
   );
 };

@@ -1,8 +1,12 @@
 import "./CategoryContainer.css";
 import { categories } from "../../../data/data.js";
 import CategoryItem from "./CategoryItem/CategoryItem";
+import GameContext from "../../../store/game-context";
+import { useContext } from "react";
 
 export default function CategoryContainer(props) {
+  const gameCtx = useContext(GameContext);
+
   return (
     <div className="menu-item">
       <p>Category</p>
@@ -11,10 +15,10 @@ export default function CategoryContainer(props) {
           const { name, image } = category;
           return (
             <CategoryItem
+              key={name}
               name={name}
               image={image}
-              onChangeCategory={props.onChangeCategory}
-              active={name === props.category}
+              active={name === gameCtx.category.value}
             />
           );
         })}
