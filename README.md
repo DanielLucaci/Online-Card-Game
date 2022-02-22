@@ -1,2 +1,4 @@
 # Online-Card-Game
-A simple card game made using React.js
+This is my very first web application using React.
+
+Hope you enjoy it!

@@ -1,5 +1,11 @@
-import './MenuHeader.css';
+import "./MenuHeader.css";
 
-export default function MenuHeader() {
-    return <h1 className="menu-header">Menu</h1>
-}
+const MenuHeader = () => {
+  return (
+    <div className="header">
+      <h1 className="header-title">Memory card game</h1>
+    </div>
+  );
+};
+
+export default MenuHeader;

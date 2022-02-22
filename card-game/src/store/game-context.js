@@ -1,5 +1,8 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useCallback, useEffect, useMemo, useState } from "react";
 import { cards } from "../data/data";
+import pairFound from '../data/Sounds/star.wav';
+import backgroundMusicFile from "../data/Sounds/background.mp3";
+
 
 const GameContext = createContext({
   playing: false,
@@ -36,8 +39,21 @@ const GameContextProvider = (props) => {
   const [firstCard, setFirstCard] = useState("");
   const [secondCard, setSecondCard] = useState("");
   const [remainingPairs, setRemainingPairs] = useState(0);
+  const [musicAllowed, setMusicAllowed] = useState(true);
+  const [soundAllowed, setSoundAllowed] = useState(true);
+
+  const pairFoundSound = useMemo(() => {return new Audio(pairFound)}, []);
+  const backgroundMusic = useMemo(() => {return new Audio(backgroundMusicFile)}, []);
 
   useEffect(() => {
+    if(musicAllowed && playing) {
+      backgroundMusic.play();
+    } else { 
+      backgroundMusic.pause();
+    } 
+  }, [musicAllowed, backgroundMusic, playing]);
+
+  const updateCardItems = useCallback(() => {
     let cards1 = [];
     switch (difficulty) {
       case "Easy":
@@ -64,6 +80,11 @@ const GameContextProvider = (props) => {
     );
   }, [difficulty, category]);
 
+
+  useEffect(() => {
+      updateCardItems();
+  }, [updateCardItems]);
+
   useEffect(() => {
     if (firstCard === "") return;
     const timeout = setTimeout(() => {
@@ -88,6 +109,7 @@ const GameContextProvider = (props) => {
 
   useEffect(() => {
     if (firstCard === secondCard && firstCard !== "") {
+      soundAllowed && pairFoundSound.play();
       setRemainingPairs((prevRemainingPairs) => prevRemainingPairs - 1);
       setCardItems((prevCardItems) => {
         return prevCardItems.map((item) => {
@@ -98,7 +120,7 @@ const GameContextProvider = (props) => {
       setFirstCard("");
       setSecondCard("");
     }
-  }, [firstCard, secondCard]);
+  }, [firstCard, secondCard, pairFoundSound, soundAllowed]);
 
   useEffect(() => {
     if (remainingPairs === 0 && playing) {
@@ -115,13 +137,13 @@ const GameContextProvider = (props) => {
   const startNewGame = () => {
     setPlaying(false);
     setGameOver(false);
-    setCardItems([]);
+    setRemainingPairs(0);
     setElapsedTime(0);
     setCategory("Fruits");
     setDifficulty("Easy");
     setFirstCard("");
     setSecondCard("");
-    setRemainingPairs(0);
+    updateCardItems();
   };
 
   const shuffle = (array) => {
@@ -144,6 +166,14 @@ const GameContextProvider = (props) => {
       value={{
         playing: playing,
         gameOver: gameOver,
+        sound: {
+          allowed: soundAllowed,
+          toggle: () => setSoundAllowed((prevState) => !prevState)
+        },
+        music: {
+          allowed: musicAllowed,
+          toggle: () => setMusicAllowed((prevState) => !prevState)
+        },
         startNewGame: startNewGame,
         toggleGame: () => setPlaying((prevPlaying) => !prevPlaying),
         difficulty: {

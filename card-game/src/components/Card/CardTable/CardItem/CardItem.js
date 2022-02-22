@@ -28,9 +28,13 @@ export default function CardItem(props) {
 
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       if (isActive === true && !props.found) setisActive(false);
     }, 2500);
+
+    return () => {
+      clearTimeout(timeout);
+    }
   }, [isActive, props.found]);
 
   return (
@@ -51,6 +55,7 @@ export default function CardItem(props) {
               .default
           }
           alt={props.name}
+          draggable="false"
         />
       </div>
     </div>

@@ -15,3 +15,12 @@ body {
   background-color: #2193bc;
   position: relative;
 }
+
+#root { 
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+}
